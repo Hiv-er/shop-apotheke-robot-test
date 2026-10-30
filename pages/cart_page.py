@@ -27,7 +27,7 @@ class CartPage:
 
     def cart_should_contain_product(self, product_name: str) -> None:
         self.browser.get_element_states(
-            f'text={product_name}',
+            self.cart_product(product_name),
             "contains",
             "visible"
         )
