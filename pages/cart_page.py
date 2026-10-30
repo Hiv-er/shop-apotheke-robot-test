@@ -1,7 +1,7 @@
-from typing import cast
-
 from Browser import Browser
-from robot.libraries.BuiltIn import BuiltIn
+
+from utils.browser import get_browser
+from utils.price import parse_price
 
 
 class CartPage:
@@ -19,10 +19,7 @@ class CartPage:
 
     @property
     def browser(self) -> Browser:
-        return cast(
-            Browser,
-            BuiltIn().get_library_instance("Browser"),
-        )
+        return get_browser()
 
     def open_cart(self) -> None:
         self.browser.click(self.CART_LINK)
@@ -37,7 +34,7 @@ class CartPage:
 
     def get_cart_item_price(self, product_name: str) -> str:
         price = self.browser.get_text(self.product_price(product_name))
-        return price.replace("€", "").replace("\u00a0", "").strip()
+        return parse_price(price)
 
     def proceed_to_checkout(self) -> None:
         self.browser.click(self.CHECKOUT_BUTTON)

@@ -1,7 +1,6 @@
-from typing import cast
-
 from Browser import Browser
-from robot.libraries.BuiltIn import BuiltIn
+
+from utils.browser import get_browser
 
 
 class Header:
@@ -9,10 +8,7 @@ class Header:
 
     @property
     def browser(self) -> Browser:
-        return cast(
-            Browser,
-            BuiltIn().get_library_instance("Browser"),
-        )
+        return get_browser()
 
     def search_for_pzn(self, pzn: str) -> None:
         self.browser.fill_text(self.SEARCH_INPUT, str(pzn))
