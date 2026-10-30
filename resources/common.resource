@@ -8,7 +8,7 @@ ${COOKIE_BUTTON}    role=button[name="Nur technisch Notwendige"]
 *** Keywords ***
 Open Shop Apotheke
     New Browser    ${BROWSER}    headless=${HEADLESS}    args=["--start-maximized"]
-    New Context    viewport=${None}    locale="de-DE"
+    New Context    viewport=${None}    locale=${LOCALE}
     New Page    ${BASE_URL}
     Handle Cookie Consent If Present
 

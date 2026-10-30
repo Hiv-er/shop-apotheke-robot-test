@@ -31,6 +31,7 @@ robot --pythonpath . --outputdir results tests
 ```
 
 Useful artifacts are `results/report.html`, `results/log.html` and `results/output.xml`.
+
 Unset `HEADLESS` or set it to `true` to return to headless mode. `BASE_URL`, `BROWSER`,
-`ASSERTION_TIMEOUT` and `BROWSER_TIMEOUT` can also be set as environment
+`LOCALE`, `ASSERTION_TIMEOUT` and `BROWSER_TIMEOUT` can also be set as environment
 variables.
